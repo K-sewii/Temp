@@ -1,7 +1,5 @@
 # Tiêu chí nghiệm thu (Acceptance Criteria - AC) — Hệ thống Quản lý Rạp chiếu phim
 
-> **Lưu ý:** Tài liệu AC này đã được cập nhật và đồng bộ 100% theo Baseline 24 Use Case mới nhất (gồm 8 Phân hệ).
-
 ## Quy ước chung (Cần nhớ khi code)
 
 - Một đơn đặt vé (`Booking`) chứa tối đa **6 vé** (`Ticket`).
