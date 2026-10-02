@@ -2,7 +2,7 @@
 
 ## Quy ước chung (Cần nhớ khi code)
 
-- Một đơn đặt vé (`Booking`) chứa tối đa **8 vé** (`Ticket`).
+- Một đơn đặt vé (`Booking`) chứa tối đa **6 vé** (`Ticket`).
 - Một `Booking` chỉ thuộc về đúng một suất chiếu (`Showtime`). Nó có thể bao gồm nhiều `Ticket` (vé) và `Combo` (đồ ăn/uống).
 - Một `Booking` chỉ được áp dụng tối đa **1 mã khuyến mãi** (`Promotion`).
 - Trạng thái ghế ngồi của từng suất chiếu sẽ do bảng `ShowtimeSeat` quản lý.
@@ -166,18 +166,6 @@ VALID → CANCELLED (Bị hủy)
 | AC-08 | Hiển thị mã QR to rõ ràng để đi quét tại rạp (nếu đơn đã PAID). |
 | AC-09 | Hiện rõ trạng thái của đơn: Đã thanh toán, Đã hủy, Vé đã dùng... |
 | AC-10 | Nếu chưa từng mua vé nào -> Hiện màn hình "Bạn chưa có giao dịch nào". |
-
-## CUS-09 — Quản lý thẻ thành viên (Membership)
-
-| ID | Tiêu chí nghiệm thu (AC) |
-|---|---|
-| AC-01 | Khách xem được thẻ thành viên của mình. |
-| AC-02 | Hiển thị đúng Hạng (Tier): Standard, VIP, VVIP... |
-| AC-03 | Hiển thị số điểm tích lũy hiện tại. |
-| AC-04 | Hiển thị danh sách các quyền lợi của Hạng đó (VD: giảm 10% bắp nước). |
-| AC-05 | Xem được lịch sử lên/xuống hạng hoặc lịch sử cộng/trừ điểm. |
-| AC-06 | Bảo mật: Không xem hoặc hack sửa điểm của user khác. |
-| AC-07 | Thao tác xem này là Read-only, không sửa đổi dữ liệu DB. |
 
 ---
 
@@ -374,36 +362,8 @@ VALID → CANCELLED (Bị hủy)
 | AC-09 | Cập nhật luật giá. |
 | AC-10 | Khi sửa luật giá (VD tăng giá từ 100k -> 120k), những hóa đơn ngày xưa khách đã mua 100k **phải giữ nguyên số tiền**, không được tự update lên 120k. |
 
-## ADM-07 — Quản lý Hạng thành viên (Membership)
 
-| ID | Tiêu chí nghiệm thu (AC) |
-|---|---|
-| AC-01 | Tạo hạng thành viên mới (Bronze, Silver, Gold...). |
-| AC-02 | Cấu hình mức điểm để đạt hạng, tỉ lệ giảm giá. |
-| AC-03 | Xem list hạng. |
-| AC-04 | Xem chi tiết. |
-| AC-05 | Sửa/Cập nhật hạng. |
-| AC-06 | Nhập vớ vẩn chữ vào ô số -> Báo lỗi. |
-| AC-07 | Hạng đang có khách hàng sử dụng -> Cấm xóa cứng (xóa đi khách mất hạng). |
-| AC-08 | Sửa tỉ lệ chiết khấu của Hạng không được làm thay đổi tiền của các đơn hàng trong quá khứ. |
-
-## ADM-08 — Quản lý Mã khuyến mãi (Promotion)
-
-| ID | Tiêu chí nghiệm thu (AC) |
-|---|---|
-| AC-01 | Tạo mã giảm giá (Voucher/Coupon). |
-| AC-02 | Tên mã viết liền không dấu hợp lệ (VD: TET2024). |
-| AC-03 | Set được thời hạn bắt đầu/kết thúc. |
-| AC-04 | Set được điều kiện (Đơn tối thiểu bao nhiêu) và Mức giảm (Giảm bao nhiêu % hoặc bao nhiêu tiền). |
-| AC-05 | Mã code không được trùng lặp. |
-| AC-06 | Xem mã. |
-| AC-07 | Cập nhật mã. |
-| AC-08 | Mã hết hạn / bị khóa -> Khách không nhập được trên app nữa. |
-| AC-09 | Khách chỉ xài 1 mã/đơn. |
-| AC-10 | Khách nhập mã nhưng mua chưa đủ điều kiện -> Báo "Đơn chưa đủ điều kiện áp dụng". |
-| AC-11 | Việc sửa nội dung mã không làm sai lệch số tiền của các hóa đơn cũ. |
-
-## ADM-09 — Quản lý Menu Đồ ăn/Thức uống (F&B)
+## ADM-07 — Quản lý Menu Đồ ăn/Thức uống (F&B)
 
 | ID | Tiêu chí nghiệm thu (AC) |
 |---|---|
@@ -417,7 +377,7 @@ VALID → CANCELLED (Bị hủy)
 | AC-08 | Dev nên dùng cờ `isActive = false` (xóa mềm) thay cho lệnh DELETE SQL. |
 | AC-09 | Tăng giá bắp không làm đổi hóa đơn cũ của khách. |
 
-## ADM-10 — Quản lý Tài khoản Nhân viên
+## ADM-08 — Quản lý Tài khoản 
 
 | ID | Tiêu chí nghiệm thu (AC) |
 |---|---|
