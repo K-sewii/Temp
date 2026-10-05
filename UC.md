@@ -197,6 +197,7 @@ Người dùng có phiên đăng nhập hợp lệ.
 ### Hậu điều kiện
 
 Thông tin cá nhân được cập nhật.
+Không thay đổi dữ liệu nghiệp vụ.
 
 ---
 
