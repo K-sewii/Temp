@@ -171,7 +171,7 @@ Người dùng có phiên đăng nhập hợp lệ.
 ## CUS-03 — Quản lý thông tin cá nhân
 
 **Actor chính:** Customer  
-**Quan hệ:** `<<include>>` Xem thông tin · `<<extend>>` Cập nhật thông tin  
+**Quan hệ:** `<<include>>` Xem thông tin · `<<extend>>` Cập nhật thông tin . `<<extend>>` Xem lịch sử đặt vé.
 **Tóm tắt:** Xem và cập nhật thông tin cá nhân của tài khoản.  
 **Tiền điều kiện:** Customer đã đăng nhập.
 
@@ -179,15 +179,20 @@ Người dùng có phiên đăng nhập hợp lệ.
 
 1. Customer mở thông tin cá nhân.
 2. Hệ thống hiển thị thông tin hiện tại.
-3. Customer cập nhật thông tin.
-4. Hệ thống kiểm tra dữ liệu.
-5. Hệ thống lưu thông tin mới.
-6. Hệ thống thông báo cập nhật thành công.
+3. Customer chọn nhóm thao tác:
+   - **Cập nhật thông tin:** thay đổi các trường thông tin cá nhân (tên, số điện thoại, v.v.).
+   - **Xem lịch sử đặt vé:** tra cứu danh sách toàn bộ các Booking thuộc về Customer, xem chi tiết (phim, suất, ghế, tiền) và mã vé điện tử (`ticketCode`) nếu Booking ở trạng thái `PAID`.
+4. Customer nhập hoặc chỉnh sửa thông tin (bỏ qua bước này nếu chỉ xem lịch sử đặt vé).
+5. Hệ thống kiểm tra/truy xuất dữ liệu.
+6. Hệ thống lưu/hiển thị thông tin mới.
+7. Hệ thống thông báo cập nhật thành công(nếu Customer chọn thao tác cập nhật thông tin).
 
 ### Dòng sự kiện phụ
 
-- 4.1. Dữ liệu không hợp lệ → hệ thống yêu cầu chỉnh sửa → quay lại bước 3.
-- 5.1. Thông tin không thể cập nhật → hệ thống thông báo lỗi.
+- 3.1. Booking chưa `PAID` → hệ thống không hiển thị vé điện tử.
+- 5.1. Dữ liệu không hợp lệ → hệ thống yêu cầu chỉnh sửa → quay lại bước 3.
+- 5.1. Không có lịch sử đặt vé → hệ thống hiển thị trạng thái không có dữ liệu.
+- 6.1. Thông tin không thể cập nhật → hệ thống thông báo lỗi.
 
 ### Hậu điều kiện
 
